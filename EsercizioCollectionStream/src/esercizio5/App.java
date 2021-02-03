@@ -26,12 +26,16 @@ public class App {
 
         ricalcola(numeri, n -> n * n).forEach(System.out::println);
         System.out.println("---------------------");
-        
+
         ricalcola(numeri, n -> n * n * n).forEach(System.out::println);
         System.out.println("---------------------");
-              
+
         ricalcola(App::getNumeri, n -> Math.sqrt(n)).forEach(System.out::println);
         System.out.println("---------------------");
+
+        numeri.get().stream()
+                .filter(n -> n.doubleValue() % 2 == 0)
+                .forEach(n -> System.out.println(n));
 
     }
 

@@ -72,14 +72,15 @@ public class Catalogo<E extends Articolo> implements Iterable<E> {
      */
     public <E extends Articolo> Catalogo<E> sottocatalogo(Class<E> clazz) {
         Catalogo<E> result = new Catalogo<>();
-        catalogo.stream().filter(v-> clazz.isInstance(v)).forEach(v -> result.aggiungiArticolo((clazz.cast(v))));
-        /*
+        catalogo.stream().filter(articolo -> clazz.isInstance(articolo)).forEach(v -> result.aggiungiArticolo((clazz.cast(v))));
+        
+        
         for (Articolo articolo : catalogo) {
             if (clazz.isInstance(articolo)) {
                 result.aggiungiArticolo((E) articolo);
             }
         }
-        */
+        
         return result;
     }
 }
