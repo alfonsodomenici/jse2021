@@ -42,32 +42,3 @@ public class App {
     }
 }
 
-class Computer implements Articolo{
-
-    private final String marca;
-    private final double prezzo;
-
-    public Computer(String marca, double prezzo) {
-        this.marca = marca;
-        this.prezzo = prezzo;
-    }
-    
-    
-    @Override
-    public String getNome() {
-        return marca;
-    }
-
-    @Override
-    public double getPrezzo() {
-        return prezzo;
-    }
-
-    @Override
-    public String toString() {
-        return "Computer{" + "marca=" + marca + ", prezzo=" + prezzo + '}';
-    }
-    
-    
-            
-}

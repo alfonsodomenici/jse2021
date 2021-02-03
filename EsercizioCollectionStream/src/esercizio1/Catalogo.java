@@ -5,6 +5,7 @@
  */
 package esercizio1;
 
+import esercizio2.Mobile;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -48,10 +49,10 @@ public class Catalogo<E extends Articolo> implements Iterable<E> {
     private class CatIterator implements Iterator<E> {
 
         private int cur = -1;
-        
+
         @Override
         public boolean hasNext() {
-            return cur < catalogo.size() -1;
+            return cur < catalogo.size() - 1;
         }
 
         @Override
@@ -59,5 +60,26 @@ public class Catalogo<E extends Articolo> implements Iterable<E> {
             return catalogo.get(++cur);
         }
 
+    }
+
+    /**
+     * restituisce un nuovo catalogo con gli articoli del tipo passato come
+     * parametro
+     *
+     * @param <E>
+     * @param clazz
+     * @return
+     */
+    public <E extends Articolo> Catalogo<E> sottocatalogo(Class<E> clazz) {
+        Catalogo<E> result = new Catalogo<>();
+        catalogo.stream().filter(v-> clazz.isInstance(v)).forEach(v -> result.aggiungiArticolo((clazz.cast(v))));
+        /*
+        for (Articolo articolo : catalogo) {
+            if (clazz.isInstance(articolo)) {
+                result.aggiungiArticolo((E) articolo);
+            }
+        }
+        */
+        return result;
     }
 }

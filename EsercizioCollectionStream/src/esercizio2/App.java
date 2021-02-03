@@ -5,21 +5,42 @@
  */
 package esercizio2;
 
+import esercizio1.Articolo;
 import esercizio1.Catalogo;
+import esercizio1.Computer;
 
 /**
  *
  * @author alfonso
  */
 public class App {
+
     public static void main(String[] args) {
-        Catalogo<Mobile> mobili = new Catalogo<>();
+        Catalogo<Articolo> catalogo = new Catalogo<>();
+
+        catalogo.aggiungiArticolo(new Mobile("divano", 1000, 50, 200, 50));
+        catalogo.aggiungiArticolo(new Mobile("letto", 1500, 60, 220, 220));
+        catalogo.aggiungiArticolo(new Mobile("cassettiera", 2000, 100, 100, 70));
+        catalogo.aggiungiArticolo(new Mobile("scrivania", 500, 70, 80, 70));
+
+        catalogo.aggiungiArticolo(new Computer("IBM", 1500));
+        catalogo.aggiungiArticolo(new Computer("DELL", 2000));
+        catalogo.aggiungiArticolo(new Computer("ASUS", 1300));
+        catalogo.aggiungiArticolo(new Computer("APPLE", 2500));
+
+        Catalogo<Mobile> mobili = catalogo.sottocatalogo(Mobile.class);
         
-        mobili.aggiungiArticolo(new Mobile("divano", 1000, 50, 200, 50));
-        mobili.aggiungiArticolo(new Mobile("letto", 1500, 60, 220, 220));
-        mobili.aggiungiArticolo(new Mobile("cassettiera", 2000, 100, 100, 70));
-        mobili.aggiungiArticolo(new Mobile("scrivania", 500, 70, 80, 70));
+        Catalogo<Computer> computers = catalogo.sottocatalogo(Computer.class);
         
-        ProvaMobile.scegliMobile(mobili, 1900, 65, 230, 230).stream().forEach(System.out::println);
+        System.out.println("--------------- solo mobili ---------------------");
+        System.out.println(mobili);
+        
+        System.out.println("--------------- solo computer ---------------------");
+        System.out.println(computers);
+        
+        System.out.println("--------------- tutti ---------------------");
+        System.out.println(catalogo.sottocatalogo(Articolo.class));
+        
+        //ProvaMobile.scegliMobile(catalogo.sottocatalogo(Mobile.class), 1900, 65, 230, 230).stream().forEach(System.out::println);
     }
 }
