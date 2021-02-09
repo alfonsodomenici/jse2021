@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package local;
+package datetime;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -17,7 +17,7 @@ import java.time.temporal.TemporalUnit;
  *
  * @author alfonso
  */
-public class App {
+public class App1 {
     public static void main(String[] args) {
         LocalDate oggi = LocalDate.now();
         
