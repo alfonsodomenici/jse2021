@@ -21,7 +21,7 @@ public class App3 {
     public static void main(String[] args) {
         DateTimeFormatter format = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
 
-// Partenza da San Francisco il 20 luglio 2014, alle 19:30
+        // Partenza da San Francisco il 20 luglio 2014, alle 19:30
         LocalDateTime leaving = LocalDateTime.of(2014, Month.JULY, 20, 19, 30);
         ZoneId leavingZone = ZoneId.of("America/Los_Angeles");
         ZonedDateTime departure = ZonedDateTime.of(leaving, leavingZone);
@@ -35,7 +35,7 @@ public class App3 {
             throw exc;
         }
 
-// Il volo dura 15 ore e 45 minuti, quindi 945 minuti
+        // Il volo dura 15 ore e 45 minuti, quindi 945 minuti
         ZoneId arrivingZone = ZoneId.of("Europe/Rome");
         ZonedDateTime arrival = departure.withZoneSameInstant(arrivingZone)
                 .plusMinutes(945);
@@ -48,7 +48,7 @@ public class App3 {
             throw exc;
         }
 
-// Informazioni circa l'ora legale
+        // Informazioni circa l'ora legale
         if (arrivingZone.getRules().isDaylightSavings(arrival.toInstant())) {
             System.out.printf(" (a %s è attiva l'ora legale)%n",
                     arrivingZone);

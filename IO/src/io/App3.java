@@ -22,7 +22,8 @@ public class App3 {
 
         String inFile = FileSystems.getDefault().getPath("Anagrafica.txt").toAbsolutePath().toString();
         String outFile = FileSystems.getDefault().getPath("Anagrafica-copia.txt").toAbsolutePath().toString();
-        try ( BufferedReader br = new BufferedReader(new FileReader(inFile));  PrintWriter pw = new PrintWriter(new FileWriter(outFile))) {
+        try ( BufferedReader br = new BufferedReader(new FileReader(inFile));  
+              PrintWriter pw = new PrintWriter(new FileWriter(outFile))) {
             String line;
             while ((line = br.readLine()) != null) {
                 System.out.println("lettura:" + line);

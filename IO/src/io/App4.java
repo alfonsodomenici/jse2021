@@ -21,9 +21,8 @@ public class App4 {
     public static void main(String[] args) {
 
         String inFile = FileSystems.getDefault().getPath("Anagrafica.txt").toAbsolutePath().toString();
-        String outFile = FileSystems.getDefault().getPath("Anagrafica-copia.txt").toAbsolutePath().toString();
-        try ( BufferedReader br = new BufferedReader(new FileReader(inFile));  PrintWriter pw = new PrintWriter(new FileWriter(outFile))) {
-            br.lines().forEach(pw::println);
+        try ( BufferedReader br = new BufferedReader(new FileReader(inFile))) {
+            br.lines().forEach(System.out::println);
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }

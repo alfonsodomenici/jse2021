@@ -18,27 +18,28 @@ public class App2 {
         Thread.sleep(10 * 1000);
         t.interrupt();
     }
-}
 
-class Worker implements Runnable {
+    private static class Worker implements Runnable {
 
-    private final String name;
+        private final String name;
 
-    public Worker(String name) {
-        this.name = name;
-    }
-
-    @Override
-    public void run() {
-        try {
-            int i = 0;
-            while (true) {
-                Thread.sleep((long) (Math.random() * 1000));
-                System.out.println(i++ + " " + this.name);
-            }
-        } catch (InterruptedException e) {
-            System.out.println(e.getMessage());
+        public Worker(String name) {
+            this.name = name;
         }
-        System.out.println("DONE! " + this.name);
+
+        @Override
+        public void run() {
+            try {
+                int i = 0;
+                while (true) {
+                    Thread.sleep((long) (Math.random() * 1000));
+                    System.out.println(i++ + " " + this.name);
+                }
+            } catch (InterruptedException e) {
+                System.out.println(e.getMessage());
+            }
+            System.out.println("DONE! " + this.name);
+        }
     }
+
 }

@@ -15,25 +15,25 @@ public class App1 {
         new Worker("Worker1").start();
         new Worker("Worker2").start();
     }
-}
 
-class Worker extends Thread {
+    private static class Worker extends Thread {
 
-    public Worker(String name) {
-        super(name);
-    }
-
-    @Override
-    public void run() {
-        for (int i = 0; i < 10; i++) {
-            System.out.println(i + " " + getName());
-            try {
-                sleep((long) (Math.random() * 1000));
-            } catch (InterruptedException e) {
-                System.out.println(e.getMessage());
-            }
+        public Worker(String name) {
+            super(name);
         }
-        System.out.println("DONE! " + getName());
-    }
 
+        @Override
+        public void run() {
+            for (int i = 0; i < 10; i++) {
+                System.out.println(i + " " + getName());
+                try {
+                    sleep((long) (Math.random() * 1000));
+                } catch (InterruptedException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
+            System.out.println("DONE! " + getName());
+        }
+
+    }
 }

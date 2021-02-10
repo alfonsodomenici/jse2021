@@ -16,7 +16,7 @@ import java.io.InputStreamReader;
 public class App7 {
 
     public static void main(String[] args) {
-
+        
         try ( BufferedReader keyboard = new BufferedReader(new InputStreamReader(System.in));) {
             while (true) {
                 System.out.print("input text: ");

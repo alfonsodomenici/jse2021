@@ -23,7 +23,8 @@ public class App1 {
         
         LocalDate d1 = LocalDate.of(2020, Month.APRIL, 21);
         
-        LocalDate d2 = LocalDate.parse("20/12/2020", DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+        DateTimeFormatter df = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        LocalDate d2 = LocalDate.parse("20/12/2020", df);
         
         LocalDate d3 = LocalDate.parse("2020-12-20");
         

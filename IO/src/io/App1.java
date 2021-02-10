@@ -20,7 +20,8 @@ public class App1 {
 
         String inFile = FileSystems.getDefault().getPath("Anagrafica.txt").toAbsolutePath().toString();
         String outFile = FileSystems.getDefault().getPath("Anagrafica-copia.txt").toAbsolutePath().toString();
-        try ( FileInputStream is = new FileInputStream(inFile);  FileOutputStream os = new FileOutputStream(outFile)) {
+        try ( FileInputStream is = new FileInputStream(inFile);  
+              FileOutputStream os = new FileOutputStream(outFile)) {
             int b;
             while ((b = is.read()) != -1) {
                 System.out.println("lettura:" + b);
