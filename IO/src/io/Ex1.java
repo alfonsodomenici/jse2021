@@ -12,6 +12,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
  *
@@ -21,24 +22,14 @@ public class Ex1 {
 
     public static void main(String[] args) {
 
-        try {
+        Path srcPath = FileSystems.getDefault().getPath("Anagrafica.txt");
+        Path destPath = FileSystems.getDefault().getPath("Anagrafica-Numerata.txt");
 
-            System.out.println(FileSystems.getDefault().getPath("src/IO/App1.java").toAbsolutePath());
-            
-            Path defaultPath = FileSystems.getDefault()
-                    .getPath("")
-                    .relativize(Paths.get("src"))
-                    .toAbsolutePath();
-            
-            System.out.println(defaultPath);
-            
-            Path srcPath = FileSystems.getDefault().getPath("Anagrafica.txt");
-            Path destPath = FileSystems.getDefault().getPath("Anagrafica-Numerata.txt");
+        try (Stream<String> s = Files.lines(srcPath);){
 
             AtomicInteger i = new AtomicInteger(1);
             Files.write(destPath,
-                    Files.lines(srcPath)
-                            .map(v -> i.getAndIncrement() + " " + v)
+                            s.map(v -> i.getAndIncrement() + " " + v)
                             .collect(Collectors.toList()));
 
         } catch (IOException ex) {

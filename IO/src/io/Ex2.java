@@ -13,6 +13,7 @@ import java.nio.file.Paths;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
  *
@@ -21,15 +22,12 @@ import java.util.stream.Collectors;
 public class Ex2 {
 
     public static void main(String[] args) {
+        Path srcPath = FileSystems.getDefault().getPath("Anagrafica.txt");
+        Path destPath = FileSystems.getDefault().getPath("Anagrafica-Maiuscolo.txt");
+        try (Stream<String> s = Files.lines(srcPath)) {
 
-        try {
-
-            Path path = FileSystems.getDefault().getPath("Anagrafica.txt");
-            Path patho = FileSystems.getDefault().getPath("Anagrafica-Maiuscolo.txt");
-
-            Files.write(patho,
-                    Files.lines(path)
-                            .map(v -> v.toUpperCase())
+            Files.write(destPath,
+                    s.map(v -> v.toUpperCase())
                             .collect(Collectors.toList()));
 
         } catch (IOException ex) {
