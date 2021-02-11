@@ -12,28 +12,12 @@ package threads;
 public class App1 {
 
     public static void main(String[] args) {
-        new Worker("Worker1").start();
-        new Worker("Worker2").start();
+        App1Worker t1 = new App1Worker("Worker1",10);
+        App1Worker t2 = new App1Worker("Worker2",10);
+        t1.start();
+        t2.start();
+        new App1Worker("worker3", 100).start();
     }
 
-    private static class Worker extends Thread {
-
-        public Worker(String name) {
-            super(name);
-        }
-
-        @Override
-        public void run() {
-            for (int i = 0; i < 10; i++) {
-                System.out.println(i + " " + getName());
-                try {
-                    sleep((long) (Math.random() * 1000));
-                } catch (InterruptedException e) {
-                    System.out.println(e.getMessage());
-                }
-            }
-            System.out.println("DONE! " + getName());
-        }
-
-    }
+    
 }
