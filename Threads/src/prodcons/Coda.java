@@ -30,6 +30,7 @@ public class Coda {
             wait();
         }
         coda.add(s);
+        System.out.println(Thread.currentThread().getName() + " coda write " + s);
         notifyAll();
     }
 
@@ -39,6 +40,7 @@ public class Coda {
             wait();
         }
         String s = coda.remove();
+        System.out.println(Thread.currentThread().getName() + " coda read " + s);
         notifyAll();
         return s;
     }

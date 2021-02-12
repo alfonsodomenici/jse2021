@@ -28,6 +28,7 @@ public class Consumatore implements Runnable {
         try {
             while (true) {
                 String s = q.togli();
+                System.out.println(Thread.currentThread().getName() + " cons  read " + s);
                 log.append(" ").append(s);
                 long p = (long) (Math.random() * 1000 * intervallo);
                 Thread.sleep(p);

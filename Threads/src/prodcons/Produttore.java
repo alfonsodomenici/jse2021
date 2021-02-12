@@ -30,6 +30,7 @@ public class Produttore implements Runnable {
         try {
             while (true) {
                 q.aggiungi(text[i]);
+                System.out.println(Thread.currentThread().getName() + " prod  write " + text[i]);
                 log.append(" ").append(text[i]);
                 i = (i + 1) % text.length;
                 long p = (long) (Math.random() * 1000 * intervallo);
