@@ -1,7 +1,10 @@
+target/
+nbproject/
 build/
 dist/
-/EsercizioCollectionStream/nbproject/private/
-/ObjectsClone/nbproject/private/
-/DateTime/nbproject/private/
-/IO/nbproject/private/
-/Threads/nbproject/private/
+node_modules/
+.war
+.jar
+build.xml
+bower_components/
+build/
