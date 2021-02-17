@@ -1,4 +1,4 @@
-package com.mycompany.javafx;
+package it.tss.javafxsimple;
 
 public class SystemInfo {
 

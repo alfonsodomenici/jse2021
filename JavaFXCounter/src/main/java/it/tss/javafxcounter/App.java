@@ -1,4 +1,4 @@
-package com.mycompany.javafx;
+package it.tss.javafxcounter;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -13,12 +13,8 @@ import javafx.stage.Stage;
 public class App extends Application {
 
     @Override
-    public void start(Stage stage) {
-        var javaVersion = SystemInfo.javaVersion();
-        var javafxVersion = SystemInfo.javafxVersion();
-
-        var label = new Label("Hello, JavaFX " + javafxVersion + ", running on Java " + javaVersion + ".");
-        var scene = new Scene(new StackPane(label), 640, 480);
+    public void start(Stage stage) {   
+        var scene = new Scene(new MainContent(), 200, 100);
         stage.setScene(scene);
         stage.show();
     }
