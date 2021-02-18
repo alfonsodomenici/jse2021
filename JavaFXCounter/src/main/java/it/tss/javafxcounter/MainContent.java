@@ -6,19 +6,12 @@
 package it.tss.javafxcounter;
 
 import javafx.event.ActionEvent;
-import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.input.MouseDragEvent;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
-import javafx.scene.paint.Paint;
 
 /**
  *
@@ -30,41 +23,31 @@ public class MainContent extends BorderPane {
     private final Button btnMinus;
     private final Label result;
     private final HBox hbox;
+    private int valore;
 
     public MainContent() {
+        valore = 0;
         hbox = new HBox(10);
         hbox.setAlignment(Pos.CENTER);
         btnPlus = new Button("incr");
         btnMinus = new Button("decr");
         btnMinus.setDisable(true);
+        result = new Label("0");
         btnPlus.setOnAction(this::onIncrementa);
         btnMinus.setOnAction(this::onDecrementa);
-        btnPlus.setOnMouseEntered(this::onMouseEntered);
-        btnPlus.setOnMouseExited(this::onMouseExited);
-        btnMinus.setOnMouseEntered(this::onMouseEntered);
-        btnMinus.setOnMouseExited(this::onMouseExited);
-
-        result = new Label("0");
         result.setTextFill(Color.GREEN);
         hbox.getChildren().addAll(btnPlus, btnMinus, result);
         this.setCenter(hbox);
     }
 
     private void onIncrementa(ActionEvent e) {
-        result.setText(String.valueOf(Integer.parseInt(result.getText()) + 1));
+        result.setText(String.valueOf(++valore));
         btnMinus.setDisable(false);
     }
 
     private void onDecrementa(ActionEvent e) {
-        result.setText(String.valueOf(Integer.parseInt(result.getText()) - 1));
-        btnMinus.setDisable(Integer.valueOf(result.getText()) == 0);
+        result.setText(String.valueOf(--valore));
+        btnMinus.setDisable(valore == 0);
     }
 
-    private void onMouseEntered(MouseEvent e) {
-        ((Button) e.getSource()).setBackground(new Background(new BackgroundFill(Paint.valueOf("RED"), CornerRadii.EMPTY.EMPTY, Insets.EMPTY)));
-    }
-
-    private void onMouseExited(MouseEvent e) {
-        ((Button) e.getSource()).setBackground(null);
-    }
 }

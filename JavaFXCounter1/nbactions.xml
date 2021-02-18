@@ -10,7 +10,7 @@
                 <goal>javafx:run</goal>
             </goals>
             <properties>
-                <exec.args>-classpath %classpath it.tss.javafxcounter.App</exec.args>
+                <exec.args>-classpath %classpath it.tss.javafxcounter1.App</exec.args>
                 <exec.executable>java</exec.executable>
             </properties>
         </action>

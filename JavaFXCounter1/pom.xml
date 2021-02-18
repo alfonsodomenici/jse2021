@@ -36,10 +36,9 @@
                 <artifactId>javafx-maven-plugin</artifactId>
                 <version>0.0.4</version>
                 <configuration>
-                    <mainClass>it.tss.javafxcounter.App</mainClass>
+                    <mainClass>it.tss.javafxcounter1.App</mainClass>
                 </configuration>
             </plugin>
         </plugins>
     </build>
-    <name>JavaFXCounter1</name>
 </project>
