@@ -8,6 +8,7 @@ package it.tss.demofx.gui;
 import it.tss.demofx.App;
 import static it.tss.demofx.App.loadFXML;
 import it.tss.demofx.business.DbStore;
+import it.tss.demofx.business.FileManager;
 import it.tss.demofx.business.Song;
 import it.tss.demofx.business.SongsStoreException;
 import java.io.File;
@@ -121,8 +122,8 @@ public class ListSongController implements Initializable {
     }
     
     public void onPlay(){
-        System.out.println(DbStore.getFile(this.selected.getFilename()));
-        Media m = new Media(DbStore.getFile(this.selected.getFilename()));
+        System.out.println(FileManager.getFile(this.selected.getFilename()));
+        Media m = new Media(FileManager.getFile(this.selected.getFilename()));
         MediaPlayer mp = new MediaPlayer(m);
         mp.play();
     }

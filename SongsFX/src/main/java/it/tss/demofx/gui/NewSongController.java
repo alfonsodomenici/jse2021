@@ -44,6 +44,7 @@ public class NewSongController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         System.out.println("initialize newSong controller...");
+        txtFilename.setText("");
     }
 
     public void onSave() {

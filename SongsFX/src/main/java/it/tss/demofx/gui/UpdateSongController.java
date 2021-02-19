@@ -33,11 +33,10 @@ public class UpdateSongController implements Initializable {
     private TextField txtArtista;
     @FXML
     private TextField txtAlbum;
-    @FXML
-    private Label txtFilename;
+
     private Song selected;
     private Stage stage;
-    private File file;
+
 
     /**
      * Initializes the controller class.
@@ -71,10 +70,4 @@ public class UpdateSongController implements Initializable {
         txtAlbum.setText(song.getAlbum());
     }
     
-        public void onChooseFile() {
-        final FileChooser fileChooser = new FileChooser();
-        this.file = fileChooser.showOpenDialog(App.getRootStage());
-        txtFilename.setText(this.file.getName());
-        
-    }
 }

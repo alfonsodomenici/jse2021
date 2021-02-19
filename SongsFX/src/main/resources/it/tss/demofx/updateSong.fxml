@@ -30,8 +30,6 @@
             <TextField fx:id="txtTitolo" GridPane.columnIndex="1" />
             <TextField fx:id="txtArtista" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <TextField fx:id="txtAlbum" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <Button fx:id="cmdFile" mnemonicParsing="false" onAction="#onChooseFile" text="File" GridPane.rowIndex="3" />
-            <Label fx:id="txtFilename" text="scegli un file.." GridPane.columnIndex="1" GridPane.rowIndex="3" />
          </children>
       </GridPane>
       <HBox alignment="CENTER_RIGHT" prefHeight="38.0" prefWidth="600.0">
