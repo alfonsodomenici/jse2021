@@ -7,6 +7,8 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import javafx.scene.control.MenuBar;
+import javafx.scene.layout.BorderPane;
 
 /**
  * JavaFX App
@@ -18,7 +20,7 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        this.rootStage = stage;
+        rootStage = stage;
         scene = new Scene(loadFXML("main"), 640, 480);
         stage.setScene(scene);
         stage.setResizable(true);

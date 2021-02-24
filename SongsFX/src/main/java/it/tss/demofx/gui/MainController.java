@@ -12,6 +12,8 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.control.MenuBar;
+import javafx.scene.control.MenuItem;
 import javafx.scene.layout.BorderPane;
 
 /**
@@ -23,6 +25,13 @@ public class MainController implements Initializable {
 
     @FXML
     BorderPane borderPane;
+    
+    @FXML
+    MenuItem mnuListSong;
+    
+    @FXML
+    MenuItem mnuNewSong;
+    
     
     /**
      * Initializes the controller class.
@@ -42,11 +51,15 @@ public class MainController implements Initializable {
     public void onNewSong() throws IOException {
         Parent view = App.loadFXML("newSong");
         borderPane.setCenter(view);
+        mnuListSong.setDisable(false);
+        mnuNewSong.setDisable(true);
     }
     
     public void onViewAll() throws IOException{
         Parent view = App.loadFXML("listSong");
         borderPane.setCenter(view);
+        mnuListSong.setDisable(true);
+        mnuNewSong.setDisable(false);
     }
 
 }
