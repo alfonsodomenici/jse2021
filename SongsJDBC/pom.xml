@@ -5,6 +5,7 @@
     <artifactId>SongsJDBC</artifactId>
     <version>1.0</version>
     <packaging>jar</packaging>
+    
     <dependencies>
         <dependency>
             <groupId>org.mariadb.jdbc</groupId>
@@ -12,6 +13,35 @@
             <version>2.5.2</version>
         </dependency>
     </dependencies>
+    <build>
+        <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-assembly-plugin</artifactId>
+                    <executions>
+                        <execution>
+                            <phase>package</phase>
+                            <goals>
+                                <goal>single</goal>
+                            </goals>
+                            <configuration>
+                                <archive>
+                                    <manifest>
+                                        <mainClass>
+                                            it.tss.jdbc.App
+                                        </mainClass>
+                                    </manifest>
+                                </archive>
+                                <descriptorRefs>
+                                    <descriptorRef>jar-with-dependencies</descriptorRef>
+                                </descriptorRefs>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
+        </plugins>        
+    </build>
+    
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>11</maven.compiler.source>
