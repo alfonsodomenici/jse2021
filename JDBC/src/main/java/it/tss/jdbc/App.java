@@ -27,13 +27,11 @@ public class App {
     public static void main(String[] args) {
 
         try (
-                 Connection cn = DriverManager
+                Connection cn = DriverManager
                         .getConnection(App.DB_URL, App.DB_USR, App.DB_PWD);  
                 Statement cmd = cn.createStatement();  
                 ResultSet rs = cmd.executeQuery(App.SQL_QUERY);  
-                PreparedStatement insert = cn.prepareStatement("insert into productlines (productLine,textDescription ) values (?, ?)");
-                PreparedStatement delete = cn.prepareStatement("delete from productlines where productLine = ?");
-                ) {
+                PreparedStatement insert = cn.prepareStatement("insert into productlines (productLine,textDescription ) values (?, ?)");  PreparedStatement delete = cn.prepareStatement("delete from productlines where productLine = ?");) {
                     try {
                         cn.setAutoCommit(false);
                         for (int i = 1; i <= 1000; i++) {
@@ -41,14 +39,14 @@ public class App {
                             //insert.setString(1, key);
                             //insert.setString(2, "prova insert");
                             //insert.executeUpdate();
-                            
+
                             delete.setString(1, key);
                             delete.executeUpdate();
-                            
+
                             //cmd.executeUpdate("insert into productlines (productLine,textDescription ) values ('" + key + "', 'prova insert')");
                             //cmd.executeUpdate("delete from productlines where productLine = '" + key + "'");
                         }
-                        
+
                         cn.commit();
                     } catch (SQLException e) {
                         cn.rollback();

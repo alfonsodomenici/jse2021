@@ -63,10 +63,10 @@ public class DbStore {
     }
 
     public static void deleteSong(Long id) {
-        try ( Connection cn = DriverManager.getConnection(URL, USR, PWD);  PreparedStatement pcmd = cn.prepareStatement("delete from song where id = ?")) {   
+        try ( Connection cn = DriverManager.getConnection(URL, USR, PWD);  PreparedStatement pcmd = cn.prepareStatement("delete from song where id = ?")) {
+            String filename = findById(id).getFilename();
             pcmd.setLong(1, id);
             pcmd.execute();
-            String filename = findById(id).getFilename();
             FileManager.delete(filename);
         } catch (Exception e) {
             e.printStackTrace(System.err);
