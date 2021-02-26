@@ -7,6 +7,7 @@ package it.tss.javafxjpa.gui;
 
 import it.tss.javafxjpa.App;
 import it.tss.javafxjpa.business.DbManager;
+import it.tss.javafxjpa.business.DbStore;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -34,6 +35,7 @@ public class MainController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         DbManager.check();
+        DbStore.init();
     }
 
     @FXML
